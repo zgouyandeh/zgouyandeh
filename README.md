@@ -5,7 +5,7 @@ I bridge the gap between rigorous computational logic and scalable data infrastr
 
 With a strong foundation in numerical analysis and machine learning frameworks, I build data platforms that are not only highly scalable but also optimized for analytical performance and mathematical correctness.
 
-🌐 **Connect with me:** [LinkedIn Profile](linkedin.com/in/zienab-gouyandeh-ph-d-76a20b42) | [Medium Blog](YOUR_MEDIUM_URL) | [Academic Scholar / OrcID](https://orcid.org/0000-0002-8485-7436), [Google Scholar](https://scholar.google.com/citations?user=0EokqwoAAAAJ&hl=en)
+🌐 **Connect with me:** [LinkedIn Profile](linkedin.com/in/zienab-gouyandeh-ph-d-76a20b42) | [Medium Blog](YOUR_MEDIUM_URL) | [OrcID](https://orcid.org/0000-0002-8485-7436)|[Google Scholar](https://scholar.google.com/citations?user=0EokqwoAAAAJ&hl=en)
 ---
 
 ## 🛠️ Data Engineering Ecosystem
