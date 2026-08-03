@@ -24,30 +24,13 @@ With a strong foundation in numerical analysis and machine learning frameworks, 
 
 Here are the end-to-end data systems I engineered to demonstrate production-grade architectural patterns, scalability, and system optimization.
 
-### 1. High-Throughput Real-Time Event Streaming & OLAP Engine
-* **The Architecture:** `Python (Mock Stream Generator) ➔ Apache Kafka ➔ ClickHouse ➔ dbt ➔ Apache Airflow`
-* **Core Engineering Focus:** Built a containerized streaming pipeline processing simulated multi-topic transactions. Implemented strict idempotency filters and deduplication layers within ClickHouse using the `ReplacingMergeTree` engine to guarantee metric consistency under network retry conditions.
-* **📂 Repository:** [View Source Code & System Diagram](LINK_TO_YOUR_REPO)
-* **📝 Deep-Dive Explainer:** [Medium Article: Designing Low-Latency Streaming Systems](LINK_TO_YOUR_MEDIUM)
-
-### 2. Infrastructure-as-Code (IaC) Modern Lakehouse Platform
-* **The Architecture:** `Terraform ➔ AWS S3 / MinIO ➔ Apache Iceberg ➔ dbt ➔ Snowflake`
-* **Core Engineering Focus:** Automated the complete deployment of a multi-tier Medallion architecture lakehouse platform using Terraform. Configured schema-evolution protections and structured data retention layers using open table formats (Apache Iceberg) to handle structural data drift gracefully.
-* **📂 Repository:** [View Source Code & Automation Config](LINK_TO_YOUR_REPO)
-* **📝 Deep-Dive Explainer:** [Medium Article: Reproducible Infrastructure for Data Platforms](LINK_TO_YOUR_MEDIUM)
-
-
-
-
-
 ### 1. High-Throughput Real-Time Crypto Market Data Lakehouse
 
 * **The Architecture:** Python (Coinbase WebSocket) ➔ Apache Kafka ➔ Apache Spark Structured Streaming ➔ Apache Iceberg ➔ dbt ➔ Streamlit Dashboard
 
 * **Core Engineering Focus:** Built a fully containerized, zero-cloud-cost streaming pipeline that ingests live crypto market data from Coinbase's public WebSocket feed. Implemented robust sequence-gap detection, automatic reconnect with exponential backoff, and exactly-once landing semantics using Spark's checkpointing and Iceberg's ACID guarantees. Designed a true medallion architecture (bronze/silver/gold) with CDC-style upserts (`MERGE INTO`) for order-book reconstruction and append-only aggregation for trade data, all on top of MinIO object storage. The consumption layer reads directly from Iceberg via PyIceberg—no query engine in the loop—powering a live trading-style dashboard with candlestick charts, order book depth visualization, and real-time trade tape.
 
-* ** 📂 Repository:** [View Source Code & System Diagram](https://github.com/zgouyandeh/crypto_stream_lakehouse)
-* ** 📝 Deep-Dive Explainer:** [Medium Article: Building a Local-First Real-Time Streaming Lakehouse](#)
+* **📂 Repository:** [View Source Code & System Diagram](https://github.com/zgouyandeh/crypto_stream_lakehouse)
 
 ---
 
@@ -57,16 +40,9 @@ Here are the end-to-end data systems I engineered to demonstrate production-grad
 
 * **Core Engineering Focus:** Engineered a complete production-grade lakehouse platform that ingests six Avro-serialized event streams concurrently, with strict schema enforcement and stream-specific deduplication by business key. Automated the entire ELT pipeline with Apache Airflow—from streaming writes to Iceberg tables, through dbt modeling (Silver/Gold layers) with DuckDB in-memory compute, to a PostgreSQL serving layer that enables reliable, unattended Power BI refreshes. Solved the critical challenge of BI tool connectivity to object-storage data by implementing a purpose-built sync layer, while leveraging Iceberg's snapshot isolation and schema evolution to handle concurrent streaming writes and batch reads without collision.
 
-* ** 📂  Repository:** [View Source Code & Automation Config](https://github.com/zgouyandeh/Electromarket-DockDB).
-* ** 📝  Deep-Dive Explainer:** [Medium Article: Production-Ready Lakehouse Architecture with Open-Source Tools](#)
+* **📂  Repository:** [View Source Code & Automation Config](https://github.com/zgouyandeh/Electromarket-DockDB).
 
----
 
----
-
-## 📝 Recent Articles on Medium
-* 🔸 [Why OLAP Databases are Outperforming RDBMS for Modern Cloud Analytics](YOUR_MEDIUM_LINK)
-* 🔸 [Handling Idempotency and Duplicates in Distributed Streaming Pipelines](YOUR_MEDIUM_LINK)
 
 ---
 
