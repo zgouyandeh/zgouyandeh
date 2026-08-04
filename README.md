@@ -1,11 +1,13 @@
-# Hi there, I'm Zeinab Gouyandeh 👋 
+# Hi there, I'm Zeinab Gouyandeh 👋
 ### Senior Data Engineer | Ph.D. in Applied Mathematics
 
-I bridge the gap between rigorous computational logic and scalable data infrastructure. Over the past 3+ years, I have focused on designing, building, and optimizing high-throughput real-time streaming pipelines, robust OLAP storage architectures, and automated infrastructure platforms. 
+I build data platforms the way a mathematician builds proofs — starting from correctness, then optimizing for scale. My background spans both sides of the data stack: several years designing high-throughput, real-time streaming pipelines and OLAP storage architectures, preceded by hands-on work as a data scientist applying ML/AI algorithms to prediction and classification problems.
 
-With a strong foundation in numerical analysis and machine learning frameworks, I build data platforms that are not only highly scalable but also optimized for analytical performance and mathematical correctness.
+That combination shapes how I engineer: I don't just move data — I build infrastructure that's correct enough to trust an ML model on and scalable enough to serve it in production.
 
-🌐 **Connect with me:** [LinkedIn Profile](https://www.linkedin.com/in/zienab-gouyandeh-ph-d-76a20b42/) | [Medium Blog](YOUR_MEDIUM_URL) | [OrcID](https://orcid.org/0000-0002-8485-7436)|[Google Scholar](https://scholar.google.com/citations?user=0EokqwoAAAAJ&hl=en)
+**Core stack:** Spark · Airflow · dbt · Iceberg · Trino · DuckDB · Databricks · Docker · AWS
+
+🌐 **Connect with me:** [LinkedIn](https://www.linkedin.com/in/zienab-gouyandeh-ph-d-76a20b42/) · [Medium](YOUR_MEDIUM_URL) · [ORCID](https://orcid.org/0000-0002-8485-7436) · [Google Scholar](https://scholar.google.com/citations?user=0EokqwoAAAAJ&hl=en)
 ---
 
 ## 🛠️ Data Engineering Ecosystem
