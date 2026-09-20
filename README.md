@@ -1,12 +1,14 @@
 # Zeinab Gouyandeh
 
-### Senior Data Engineer · Ph.D. in Applied Mathematics
+### Senior Data & Machine Learning Engineer · Ph.D. in Applied Mathematics
 
-I build data platforms the way a mathematician builds proofs: start from correctness, then optimize for scale.
+I build data and machine learning systems the way a mathematician builds proofs: start from correctness, then optimize for scale.
 
-My background covers both sides of the data stack. I have spent several years designing high-throughput, real-time streaming pipelines and OLAP storage architectures, and before that I worked as a data scientist applying ML/AI algorithms to prediction and classification problems. That combination shapes how I engineer: infrastructure that is **correct enough to trust a model on**, **validated well enough to know when not to**, and **scalable enough to serve in production**.
+My background covers the full path from raw data to deployed model. I started in machine learning and applied mathematics, building forecasting, deep learning, computer vision, and optimization solutions, including neural and fuzzy neural networks, for industrial and consumer applications. I then moved into data engineering, designing high-throughput, real-time streaming pipelines and OLAP storage architectures.
 
-**Core stack:** Spark · Databricks · Kafka · Airflow · dbt · Iceberg · Delta Lake · Trino · DuckDB · PostgreSQL · Docker · AWS
+That combination shapes how I engineer: infrastructure that is **correct enough to trust a model on**, **validated well enough to know when not to**, and **scalable enough to serve in production**. I hold ML systems to the same standard, with leak-safe training, grouped evaluation, and drift monitoring built in.
+
+**Core stack:** Spark · Databricks · Kafka · Airflow · dbt · Iceberg · Delta Lake · Trino · DuckDB · PostgreSQL · Feast · XGBoost · PyTorch · Docker · AWS
 
 **Connect:** [LinkedIn](https://www.linkedin.com/in/zienab-gouyandeh-ph-d-76a20b42/) · [Google Scholar](https://scholar.google.com/citations?user=0EokqwoAAAAJ&hl=en) · [ORCID](https://orcid.org/0000-0002-8485-7436) · [Medium](YOUR_MEDIUM_URL)
 
@@ -21,7 +23,8 @@ My background covers both sides of the data stack. I have spent several years de
 | **Lakehouse, OLAP & Storage** | Databricks, Delta Lake, Unity Catalog, Apache Iceberg, ClickHouse, Snowflake, PostgreSQL, MySQL, DuckDB, MinIO / S3 |
 | **Orchestration & DevOps** | Apache Airflow, dbt, Databricks Asset Bundles, Docker, Terraform, Git, GitHub Actions |
 | **BI & Serving** | Power BI, Streamlit, Databricks Lakeview, FastAPI |
-| **Applied Statistics & ML** | statsmodels, scikit-learn, PyTorch, TensorFlow, NumPy, pandas, OpenCV |
+| **Feature Stores & MLOps** | Feast, Valkey (online store), point-in-time-correct training data, Optuna |
+| **Applied Statistics & ML** | statsmodels, scikit-learn, XGBoost, SHAP, PyTorch, TensorFlow, NumPy, pandas, OpenCV; forecasting, drift detection, computer vision, deep and fuzzy neural networks |
 | **Applied GenAI** | Databricks `ai_query()`, structured extraction from unstructured text, LLM-as-classifier pipelines with declarative output validation |
 
 ---
@@ -52,7 +55,28 @@ End-to-end data systems built to demonstrate production-grade architecture, stat
 
 ---
 
-### 2. Real-Time Crypto Market Data Lakehouse
+### 2. Real-Time Drift Detection & Classification (Feature Store + ML)
+
+**Stack:** Kafka · Feast · PostgreSQL · Valkey · XGBoost · SHAP · Optuna · scikit-learn · Streamlit · Plotly
+
+**Architecture:**
+`Synthetic drift generator` → `Kafka` → `Streaming statistics (PSI / KS / Wasserstein)` → `Feast (Postgres offline, Valkey online)` → `Gated XGBoost models` → `Streamlit console`
+
+**Highlights**
+- **Three answers per time window, in real time:** is there drift, how severe is it (0-100 score), and what kind (covariate, concept, label, novel category, or engagement shift).
+- **Ground truth by construction:** a synthetic generator (~4.5M events across 60 episodes) injects one of five drift mechanisms at a known day and magnitude, so detector latency, false-alarm rate, and accuracy can be measured exactly.
+- **Leak-safe ML:** Feast point-in-time-correct retrieval for training, labels kept in an offline-only feature view, and every split grouped by episode rather than by row.
+- **Gated modeling:** a binary detector runs first, then severity and type models trained only on active windows, compared against an ungated baseline. Hyperparameters tuned with Optuna.
+- **Statistical rigor:** PSI, Kolmogorov-Smirnov, and Wasserstein distance on a reference distribution fit once, with Benjamini-Hochberg FDR correction. Decision boundaries are learned, not hand-set thresholds.
+- **Feature selection by agreement:** XGBoost importance, SHAP, and a correlation matrix had to agree before a feature was kept (12 candidates reduced to 5).
+- **Debugging story:** a label-definition bug (a fixed 10-day window on permanent drift) held the classifier at AUC 0.67. Correcting the label alone raised it to **AUC 0.99, F1 0.95** with no change to features or model. Documented in the project README.
+- **Live dashboard:** Streamlit views for episode exploration, live-window inference with explanations, and model performance.
+
+**Repository:** [drift_detection_pilot](https://github.com/zgouyandeh/drift_detection_pilot)
+
+---
+
+### 3. Real-Time Crypto Market Data Lakehouse
 
 **Stack:** Python · Coinbase WebSocket · Kafka · Spark Structured Streaming · Apache Iceberg · MinIO · dbt · PyIceberg · Streamlit · Docker
 
@@ -70,7 +94,7 @@ End-to-end data systems built to demonstrate production-grade architecture, stat
 
 ---
 
-### 3. E-Commerce Event-Driven Lakehouse (Infrastructure as Code)
+### 4. E-Commerce Event-Driven Lakehouse (Infrastructure as Code)
 
 **Stack:** Python (Faker) · Kafka (KRaft) · Schema Registry · Spark Structured Streaming · MinIO · Apache Iceberg · dbt · DuckDB · Airflow · PostgreSQL · Power BI
 
@@ -84,12 +108,6 @@ End-to-end data systems built to demonstrate production-grade architecture, stat
 - **Concurrency:** Iceberg snapshot isolation and schema evolution let streaming writes and batch reads run without collisions.
 
 **Repository:** [Electromarket-DockDB](https://github.com/zgouyandeh/Electromarket-DockDB)
-
----
-
-### In Progress: Drift Detection & Adaptive Feature Platform
-
-A feature-store platform (Feast, Kafka, PostgreSQL, Valkey) with a statistical drift-detection engine (KS, PSI, Wasserstein, FDR correction), benchmarked on a synthetic drift generator with known ground truth. Feature selection with XGBoost importance, SHAP, and correlation analysis, plus a documented label-definition bug and its fix. *Repository coming soon.*
 
 ---
 
