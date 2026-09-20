@@ -25,7 +25,7 @@ That combination shapes how I engineer: infrastructure that is **correct enough 
 | **BI & Serving** | Power BI, Streamlit, Databricks Lakeview, FastAPI |
 | **Feature Stores & MLOps** | Feast, Valkey (online store), point-in-time-correct training data, Optuna |
 | **Applied Statistics & ML** | statsmodels, scikit-learn, XGBoost, SHAP, PyTorch, TensorFlow, NumPy, pandas, OpenCV; forecasting, drift detection, computer vision, deep and fuzzy neural networks |
-| **Applied GenAI** | Databricks `ai_query()`, structured extraction from unstructured text, LLM-as-classifier pipelines with declarative output validation |
+| **Applied GenAI**| Databricks ai_query(), LangChain, LangGraph, RAG, structured extraction from unstructured text, LLM-as-classifier pipelines with declarative output validation |
 
 ---
 
@@ -114,4 +114,4 @@ End-to-end data systems built to demonstrate production-grade architecture, stat
 ## Academic Foundation
 
 - **Ph.D. in Applied Mathematics (Numerical Analysis):** numerical and analytical methods for uncertain ordinary and partial differential equations. Publications on [Google Scholar](https://scholar.google.com/citations?user=0EokqwoAAAAJ&hl=en).
-- I bring that foundation in linear algebra, numerical methods, and estimation theory into engineering practice, from forecast-error variance and residual diagnostics in the Zaferan Sofreh platform to efficient transformation code in dbt and Spark.
+
