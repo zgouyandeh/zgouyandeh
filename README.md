@@ -10,7 +10,7 @@ That combination shapes how I engineer: infrastructure that is **correct enough 
 
 **Core stack:** Spark · Databricks · Kafka · Airflow · dbt · Iceberg · Delta Lake · Trino · DuckDB · PostgreSQL · Feast · XGBoost · PyTorch · Docker · AWS
 
-**Connect:** [LinkedIn](https://www.linkedin.com/in/zienab-gouyandeh-ph-d-76a20b42/) · [Google Scholar](https://scholar.google.com/citations?user=0EokqwoAAAAJ&hl=en) · [ORCID](https://orcid.org/0000-0002-8485-7436) · [Medium](YOUR_MEDIUM_URL)
+**Connect:** [LinkedIn](https://www.linkedin.com/in/zienab-gouyandeh-ph-d-76a20b42/) · [Google Scholar](https://scholar.google.com/citations?user=0EokqwoAAAAJ&hl=en) · [ORCID](https://orcid.org/0000-0002-8485-7436) ·
 
 ---
 
